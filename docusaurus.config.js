@@ -61,7 +61,7 @@ const config = {
       navbar: {
         title: '开发规范',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Showinfo Development Specifications',
           src: 'img/logo.svg',
         },
         items: [
@@ -122,7 +122,7 @@ const config = {
         //     ],
         //   },
         // ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Showinfo Development Specifications, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
