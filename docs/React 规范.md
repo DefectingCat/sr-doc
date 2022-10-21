@@ -2,7 +2,29 @@
 sidebar_position: 3
 ---
 
-# React 规约
+# React 规范
+
+## 组件命名
+
+组件以大写驼峰命名，与类命名类似。
+
+```tsx
+const HomepageFeatures = () => {
+  return (
+    <>
+      <section className={styles.features}>
+        <div className="container">
+          <div className="row">
+            {FeatureList.map((props, idx) => (
+              <Feature key={idx} {...props} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+```
 
 ## 数据不可变
 
@@ -82,3 +104,40 @@ const handleSet = () => {
   });
 };
 ```
+
+## 不需要 `useEffect` 的场合
+
+一些常见的不需要 `useEffect` 的场合：
+
+- 在渲染时转换数据。
+- 处理用户事件。
+
+正例：
+
+```tsx
+function Form() {
+  const [firstName, setFirstName] = useState('Taylor');
+  const [lastName, setLastName] = useState('Swift');
+  // ✅ Good: 在渲染时进行计算
+  const fullName = firstName + ' ' + lastName;
+  // ...
+}
+```
+
+反例：
+
+```tsx
+function Form() {
+  const [firstName, setFirstName] = useState('Taylor');
+  const [lastName, setLastName] = useState('Swift');
+
+  // 🔴 Avoid: 多余的状态和不必要的渲染
+  const [fullName, setFullName] = useState('');
+  useEffect(() => {
+    setFullName(firstName + ' ' + lastName);
+  }, [firstName, lastName]);
+  // ...
+}
+```
+
+更多示例：[https://beta.reactjs.org/learn/you-might-not-need-an-effect#sending-a-post-request](https://beta.reactjs.org/learn/you-might-not-need-an-effect#)

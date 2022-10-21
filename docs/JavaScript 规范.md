@@ -1,19 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 5
 ---
 
-# 基本规约
-
-## 依赖管理
-
-使用 yarn 作为包管理器。
-
-```tsx
-yarn // install
-yarn add some-package // add package
-```
-
-yarn 生成的依赖锁文件 `yarn.lock` 与 npm 的不同，两个包管理器混用会导致安装的依赖有差异。
+# JavaScript 规范
 
 ## 变量
 
@@ -51,41 +40,6 @@ const [imgSize, setImgSize] = useState();
 ```tsx
 const mediacontent = [];
 const [img_size, set_img_size] = useState();
-```
-
-TypeScript 类型别名/接口以及类均使用大写开头。
-
-正例：
-
-```tsx
-export interface BasePage {
-  total: number;
-  per_page: number;
-  current_page: number;
-  last_page: number;
-}
-
-type CheckPeopleProps = {
-  phone: string | number;
-  password: string | number;
-};
-
-export class Light implements SLightBase {
-  visible = true;
-  color = '#fff';
-  intensity = 1;
-}
-```
-
-反例：
-
-```tsx
-export interface basePage {
-  total: number;
-  per_page: number;
-  current_page: number;
-  last_page: number;
-}
 ```
 
 ## 缩进
@@ -305,49 +259,3 @@ if (condition != null) {
 ```
 
 反例：
-
-```tsx
-if (condition == 42) {
-  doSomething();
-}
-```
-
-## 目录结构
-
-其余文件视项目而定。
-
-```tsx
-├── README.md
-├── src // 项目代码
-│   ├── assets  // 静态文件，图片等
-│   ├── CacheBuster.tsx
-│   ├── components  // 通用组件
-│   ├── data.ts
-│   ├── global.d.ts
-│   ├── index.css
-│   ├── index.tsx
-│   ├── libs
-│   ├── pages  // 路由页面 或 views
-│   ├── projects
-│   ├── react-app-env.d.ts
-│   ├── reportWebVitals.ts
-│   ├── router
-│   ├── setupProxy.js
-│   ├── setupTests.ts
-│   ├── show
-│   └── utils
-├── tsconfig.json
-└── yarn.lock
-```
-
-## 组件划分
-
-非通用组件放在当前页面文件夹中，通用组件放在 `src/components` 中
-
-```tsx
-├── ScenesPanel
-│   ├── index.tsx  // 当前页面
-│   └── SceneItem  // 子组件
-│       ├── index.tsx
-│       └── SceneItemStyle.ts
-```
