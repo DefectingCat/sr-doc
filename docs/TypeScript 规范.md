@@ -43,7 +43,7 @@ export interface basePage {
 
 ## 类型签名
 
-所有类型都应有签名/声明 ，除特殊情况均不使用 `any` 。
+所有类型都应有签名/声明 ，**除特殊情况均不使用 `any` 。**
 
 正例：
 
@@ -73,7 +73,7 @@ export interface Columns {
 
 ### 不确定的类型
 
-总会出现静态无法检查的类型，可以使用 `unknow` 配合运行时检查。除特殊情况均不使用 `any` 。
+总会出现静态无法检查的类型，可以使用 `unknow` 配合运行时检查。**除特殊情况均不使用 `any` 。**
 
 ```tsx
 const setAge = (age: number) => {};
